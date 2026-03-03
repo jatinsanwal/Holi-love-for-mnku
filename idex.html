@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Mnkuu 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family:'Segoe UI',cursive;
+background:black;
+color:white;
+overflow:hidden;
+text-align:center;
+}
+
+/* Intro Screen */
+#intro{
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#ff4b91,#a18cd1);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+#intro h1{
+font-size:40px;
+animation:fade 2s infinite alternate;
+}
+
+@keyframes fade{
+from{opacity:0.5;}
+to{opacity:1;}
+}
+
+button{
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4b91;
+cursor:pointer;
+margin-top:20px;
+}
+
+/* Main Content */
+#main{
+display:none;
+height:100vh;
+overflow-y:auto;
+scroll-behavior:smooth;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
+}
+
+.section{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+img{
+width:300px;
+border-radius:20px;
+box-shadow:0 0 30px white;
+animation:zoomIn 3s ease;
+}
+
+@keyframes zoomIn{
+from{transform:scale(0.5);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+/* Hearts */
+.heart{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{transform:translateY(100vh);}
+}
+
+/* Fireworks */
+.firework{
+position:fixed;
+width:5px;
+height:5px;
+background:yellow;
+border-radius:50%;
+animation:explode 1s linear infinite;
+}
+
+@keyframes explode{
+0%{transform:scale(1);}
+100%{transform:scale(5);opacity:0;}
+}
+
+.glow{
+font-size:28px;
+animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px white;}
+to{text-shadow:0 0 25px pink;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+<h1>💖 For Mnkuu Only 💖</h1>
+<p>Jatin ki taraf se ek chhota sa surprise...</p>
+<button onclick="start()">Tap To Open 💌</button>
+</div>
+
+<div id="main">
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+</audio>
+
+<div class="section">
+<h1>🌸 Happy Holi Mnkuu 🌸</h1>
+<p>
+12 baje ka pehla wish sirf tumhare liye 💖  
+Tum meri life ka sabse beautiful color ho...  
+Jab tum haste ho, lagta hai duniya rangon se bhar gayi 🌈  
+</p>
+</div>
+
+<div class="section">
+<h1>💗 Tum Hi Meri Holi Ho</h1>
+<p>
+Pink wali softness 💕  
+Yellow wali khushi 💛  
+Blue wali sukoon 💙  
+Red wali pyaar ❤️  
+Meri har feeling ka naam sirf Mnkuu hai 😌  
+</p>
+</div>
+
+<div class="section">
+<h1>💖 Our Moment 💖</h1>
+<img src="photo.jpg">
+<p class="glow">
+Jatin ❤️ Mnkuu  
+I Love You So Much My Wifey 💍💕  
+Happy Holi To My Sweetheart 🌈✨  
+</p>
+<button onclick="fireworks()">Tap For Magic 🎆</button>
+</div>
+
+</div>
+
+<script>
+function start(){
+document.getElementById("intro").style.display="none";
+document.getElementById("main").style.display="block";
+setInterval(createHeart,300);
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},5000);
+}
+
+function fireworks(){
+for(let i=0;i<40;i++){
+const fw=document.createElement("div");
+fw.classList.add("firework");
+fw.style.left=Math.random()*100+"vw";
+fw.style.top=Math.random()*100+"vh";
+fw.style.backgroundColor=["red","yellow","pink","blue","white"][Math.floor(Math.random()*5)];
+document.body.appendChild(fw);
+setTimeout(()=>{fw.remove();},1000);
+}
+alert("I Love You Mnkuu 💖🌈");
+}
+</script>
+
+</body>
+</html>
